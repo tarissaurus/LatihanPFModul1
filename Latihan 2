@@ -1,0 +1,27 @@
+random_list = [105, 3.1, "Hello", 737, "Python", 2.7, "World", 412, 5.5, "AI"]
+
+list_float = ()
+for float1 in random_list:
+  if type(float1) == float:
+    list_float = list_float + (float1, )
+
+list_str = []
+for str1 in random_list:
+  if type(str1) == str:
+    list_str.append(str1, )
+
+list_int = {'Satuan' : [], 'Puluhan' : [], 'Ratusan' : []}
+for int1 in random_list:
+  if type(int1) == int:
+    if 0 <= int1 < 10:
+      list_int['Satuan'].append(int1)
+    elif 10 <= int1 < 100:
+      list_int['Puluhan'].append(int1)
+    elif 100 <= int1 < 1000:
+      list_int['Ratusan'].append(int1)
+
+print("Data Float :", list_float)
+print("Data String :", list_str)
+print("Data Satuan :", list_int['Satuan'])
+print("Data Satuan :", list_int['Puluhan'])
+print("Data Ratusan :", list_int['Ratusan'])
