@@ -1,0 +1,37 @@
+#fungsi penambahan
+def add(x, y):
+  return x + y
+
+#fungsi pengurangan
+def min(x, y):
+  return x - y
+
+#fungsi pengurangan
+def mult(x, y):
+  return x * y
+
+#fungsi pengurangan
+def div(x, y):
+  return x / y
+
+#Definisikan pohon ekspresi sebagai fungsi
+def tree(node):
+  if type(node) in (int, int):
+    return node
+  elif type(node) is tuple and len(node) == 3:
+    operator, left_operand, right_operand = node
+    if operator == '+':
+      return tree(left_operand) + tree(right_operand)
+    elif operator == '-':
+      return tree(left_operand) - tree(right_operand)
+    elif operator == '*':
+      return tree(left_operand) * tree(right_operand)
+    elif operator == '/':
+      return tree(left_operand) / tree(right_operand)  
+#contoh pohon ekspresi: (2+3) * (5-1)
+exp_tree = ('*', ('+', 2, 3), ('-', 5, 1))
+
+#evaluasi pohon ekspresi denngan fungsi pada paradigma fungsional
+result = tree(exp_tree)
+
+print("Hasil evaluasi pohon ekspresi: ", result)
